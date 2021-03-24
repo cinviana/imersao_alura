@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>
+Currency converter
+   </title>
+  </head>
+<body> 
+ <div class="container">
+    <h1 class="page-title">
+     Currency Converter
+    </h1>
+    <img src = "https://cdn.pixabay.com/photo/2017/08/30/07/56/money-2696234_1280.jpg"
+  
+    <p class="page-subtitle">
+What the amount in reais is equivalent to a dollar deposit
+     <form method="" action="" id="formulario">
+      <label for="dolar">Dollar value US$:</label>
+      <input type="text" name="dollar" id="dollar">
+      <label for="quotation">Dollar quotation US$:</label>
+      <input type="text" name="quotation" id="quotation">
+      <label for="reais">Reais Value R$:</label>
+      <input type="text" name="reais" id="reais" disabled="disabled">
+      </br>
+      <label for="tax">Tax:</label>
+      <input type="text" name="tax" id="tax" disabled="disabled">
+      </br>
+      <input type="button" class="btn" value="Calcular" onclick="calcular()">
+      <input type="reset" class="btn" name="limpar" value="Limpar">
+    </form>
+  </div>
+</body>
+</html>
+
+***.***
+CSS
+
+body {
+  font-family: 'Verdana', font-color: Black;
+  background: black url ("https://cdn.pixabay.com/photo/2017/08/30/07/56/money-2696234_1280.jpg") no-repeat right top fixed;
+  background-position: left;
+ }
+.container {
+  text-align: right;
+  padding: 20px;
+  height: 100vh;
+}
+
+.page-title {
+  color: black;
+  font-size:1.2rem
+  margin: 20px 0 5px;
+  ;
+}
+.page-subtitle {
+  color: black;
+  margin-top: 80px;
+  ;
+  font-size: 1.2rem;
+}
+
+#formulario {
+  color: Black;
+  ;
+  font-size: 1.2rem;
+}
+
+input {
+  margin: 15px 0px 5px;
+}
+
+.btn {
+  cursor: pointer;
+;
+  background-color: #00BFFF;
+}
+
+.btn:hover {
+  opacity: 1.5;
+}
+
+.btn:active {
+  position: right;
+  top: 3px;
+  box-shadow: none;
+}
+
+***.***
+JavaScript
+
+function calcular(){
+    var formulario = window.document.getElementById("formulario")
+
+    var dollar = +formulario.dollar.value;
+    var quotation = +formulario.quotation.value;
+
+    var reais = (dollar / quotation)
+
+    formulario.reais.value = reais.toFixed(2)
+
+    if(dollar > 50){
+        window.tax.value = "Yes"               
+    }else{
+        window.tax.value = "No"
+    }
+}
